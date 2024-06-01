@@ -45,10 +45,10 @@ foreach ($my_posts as $index => $post) {
           <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(); ?>" class="blog-card__image" width="770" height="339" alt="">
           <div class="blog-card__content blog-card__content-full">
               <p class="blog-card__categories">Summer</p>
-              <h2 class="blog-card__title">One of Saturn’s largest rings may be newer than anyone</h2>
+              <a href="<?php the_permalink(); ?>" class="blog-card__title">One of Saturn’s largest rings may be newer than anyone</a>
               <div class="blog-card__info">
                   <span>June 6, 2019</span>
-                  <span>By Rickie Baroch</span>
+                  <span>By <?php the_author(); ?></span>
                   <span><?php comments_number(); ?></span>
               </div>
               <p class="blog-card__descr">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
@@ -65,7 +65,7 @@ foreach ($my_posts as $index => $post) {
           <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(); ?>" class="blog-card__image" width="370" height="280" alt="">
           <div class="blog-card__content">
               <p class="blog-card__categories">Tourism</p>
-              <h2 class="blog-card__title"><?php the_title();?></h2>
+              <a href="<?php the_permalink(); ?>" class="blog-card__title">One of Saturn’s largest rings may be newer than anyone</a>
               <div class="blog-card__info">
                   <span><?php echo date( 'F j, Y' )?></span>
                   <span>By <?php the_author(); ?></span>

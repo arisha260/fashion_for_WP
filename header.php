@@ -23,10 +23,10 @@
   <div class="site-container">
     <header class="header">
   <div class="container header__container">
-    <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="" width="126px" height="33px"></a>
+    <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="" width="126px" height="33px"></a>
     <nav class="nav">
       <ul class="list-reset nav__list">
-        <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+        <li class="nav__item"><a href="<?php echo home_url(); ?>" class="nav__link">Home</a></li>
         <li class="nav__item"><a href="#" class="nav__link">Recipes</a></li>
         <li class="nav__item"><a href="#" class="nav__link">Article</a></li>
         <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
