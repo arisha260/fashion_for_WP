@@ -1232,7 +1232,142 @@ a {
 .blog-info .tags {
   width: 100%;
 }
+.blog-info__comments{
+  grid-column: 12 span;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.comment-list {
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style: none;
+}
+.comment{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.comment__body h3{
+  margin: 0;
+  margin-bottom: 10px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 140%;
+  color: var(--dark);
+}
+.comment__body p{
+  margin: 0;
+  margin-bottom: 30px;
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--gray);
+}
+.comment__body .meta a{
+  display: inline-block;
+  margin-bottom: 10px;
+  font-family: var(--font-family);
+  font-size: 14px;
+  color: var(--gray);
+}
+.comment__body .reply a{
+  padding: 7px 10px;
+  display: inline-block;
+  border: 1px solid #e5e5e5;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  color: var(--dark);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.comment__body .reply a:focus {
+  outline: none;
+}
+.comment__body .reply a:hover {
+  background-color: var(--acent);
+  color: var(--light-color);
+}
+.comment__body .reply a:active {
+  background-color: #946815;
+  color: var(--light-color);
+}
+.comments__title{
+  margin: 0;
+  margin-bottom: 20px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 140%;
+  color: var(--dark);
+}
+.comment-respond{
 
+}
+.comment-form{
+  display: flex;
+  flex-direction: column;
+}
+.comment-form label{
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--font-family);
+  font-size: 16px;
+  color: var(--gray);
+}
+.comment-form-comment{
+  order: 6;
+}
+.comment-form-cookies-consent{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  order: 7;
+}
+.comment-form-cookies-consent label{
+margin-bottom: 0;
+}
+.form-submit{
+  order: 8;
+}
+.comment-form input:not([type="checkbox"]), .comment-form textarea{
+  padding: 7px 10px;
+  border: 1px solid #e5e5e5;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--dark);
+}
+.comment-form input[type="submit"]{
+  padding: 7px 10px;
+  display: inline-block;
+  border: 1px solid #e5e5e5;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  background-color: transparent;
+  color: var(--dark);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.comment-form input[type="submit"]:focus {
+  outline: none;
+}
+.comment-form input[type="submit"]:hover {
+  background-color: var(--acent);
+  color: var(--light-color);
+}
+.comment-form input[type="submit"]:active {
+  background-color: #946815;
+  color: var(--light-color);
+}
 .body-hiden {
   overflow: hidden;
 }

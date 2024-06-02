@@ -6,8 +6,8 @@
         <div class="container blog-info__container">
           <div class="blog-info__left">
             <h1 class="blog-info__title"><?php the_title();?></h1>
-              <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(); ?>" class="blog-info__image" width="" height="" alt="">
-<!-- исправить!-->              <p class="blog-info__descr"><?php echo get_post_field('post_content', $post_id); ?></p>
+            <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(); ?>" class="blog-info__image" width="" height="" alt="">
+            <div class="blog-info__descr"><?php echo the_content(); ?></div>
           </div>
           <div class="blog-info__right aside">
             <div class="aside__item author">
@@ -35,9 +35,17 @@
                     }
                 }
                 ?>
-                <!-- <a href="#" class="tags__tag"><?php the_tags();?></a> -->
               </div>
             </div>
+          </div>
+          <div class="blog-info__comments comments">
+          <?php 
+            $post_id = get_the_ID();
+            $comments_count = wp_count_comments($post_id);
+          ?>
+          <h2 class="comments__title"><?php echo "Всего комментариев: " . $comments_count->total_comments; ?></h2>
+            <?php comments_template(); ?>
+            <?php comment_form(); ?>
           </div>
         </div>
       </section>

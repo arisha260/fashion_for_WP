@@ -51,6 +51,7 @@ foreach ($my_posts as $index => $post) {
                   <span>By <?php the_author(); ?></span>
                   <span><?php comments_number(); ?></span>
               </div>
+              
               <p class="blog-card__descr">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
                   doloremque laudantium, totam rem sed ut perspiciatis unde omnis iste natus error sit voluptatem
                   accusantium
