@@ -78,185 +78,6 @@ foreach ($my_posts as $index => $post) {
 }
 wp_reset_postdata();
 ?>
-
-
-    
-      
-
-
-
-        <!-- <article class="blog-card">
-          <picture>
-            <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/blog1.webp" type="image/webp">
-            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/blog1.png"
-              class="blog-card__image" width="370" height="280" alt="">
-          </picture>
-          <div class="blog-card__content">
-            <p class="blog-card__categories">Tourism</p>
-            <h2 class="blog-card__title">One of Saturn’s largest rings may be newer than anyone</h2>
-            <div class="blog-card__info">
-              <span>June 6, 2019</span>
-              <span>By Rickie Baroch</span>
-            </div>
-          </div>
-        </article>
-        <article class="blog-card">
-          <picture>
-            <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/blog2.webp" type="image/webp">
-            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/blog2.png"
-              class="blog-card__image" width="370" height="280" alt="">
-          </picture>
-          <div class="blog-card__content">
-            <p class="blog-card__categories">sport</p>
-            <h2 class="blog-card__title">One of Saturn’s largest rings may be newer than anyone</h2>
-            <div class="blog-card__info">
-              <span>June 6, 2019</span>
-              <span>By Rickie Baroch</span>
-            </div>
-          </div>
-        </article>
-        <article class="blog-card">
-          <picture>
-            <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/blog3.webp" type="image/webp">
-            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/blog3.png"
-              class="blog-card__image" width="370" height="280" alt="">
-          </picture>
-          <div class="blog-card__content">
-            <p class="blog-card__categories">fashion</p>
-            <h2 class="blog-card__title">One of Saturn’s largest rings may be newer than anyone</h2>
-            <div class="blog-card__info">
-              <span>June 6, 2019</span>
-              <span>By Rickie Baroch</span>
-            </div>
-          </div>
-        </article>
-        <article class="blog-card">
-          <picture>
-            <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/blog4.webp" type="image/webp">
-            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/blog4.png"
-              class="blog-card__image" width="370" height="280" alt="">
-          </picture>
-          <div class="blog-card__content">
-            <p class="blog-card__categories">clothes</p>
-            <h2 class="blog-card__title">One of Saturn’s largest rings may be newer than anyone</h2>
-            <div class="blog-card__info">
-              <span>June 6, 2019</span>
-              <span>By Rickie Baroch</span>
-            </div>
-          </div>
-        </article>
-        <article class="blog-card">
-          <picture>
-            <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/blog5.webp" type="image/webp">
-            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/blog5.png"
-              class="blog-card__image" width="370" height="280" alt="">
-          </picture>
-          <div class="blog-card__content">
-            <p class="blog-card__categories">clothes</p>
-            <h2 class="blog-card__title">One of Saturn’s largest rings may be newer than anyone</h2>
-            <div class="blog-card__info">
-              <span>June 6, 2019</span>
-              <span>By Rickie Baroch</span>
-            </div>
-          </div>
-        </article>
-        <article class="blog-card">
-          <picture>
-            <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/blog6.webp" type="image/webp">
-            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/blog6.png"
-              class="blog-card__image" width="370" height="280" alt="">
-          </picture>
-          <div class="blog-card__content">
-            <p class="blog-card__categories">fashion</p>
-            <h2 class="blog-card__title">One of Saturn’s largest rings may be newer than anyone</h2>
-            <div class="blog-card__info">
-              <span>June 6, 2019</span>
-              <span>By Rickie Baroch</span>
-            </div>
-          </div>
-        </article>
-        <article class="blog-card">
-          <picture>
-            <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/blog7.webp" type="image/webp">
-            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/blog7.png"
-              class="blog-card__image" width="770" height="339" alt="">
-          </picture>
-          <div class="blog-card__content blog-card__content-full">
-            <p class="blog-card__categories">Summer</p>
-            <h2 class="blog-card__title">One of Saturn’s largest rings may be newer than anyone</h2>
-            <div class="blog-card__info">
-              <span>June 6, 2019</span>
-              <span>By Rickie Baroch</span>
-              <span>6 comments</span>
-            </div>
-            <p class="blog-card__descr">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-              doloremque laudantium, totam rem sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium
-              doloremque laudantium, totam rem</p>
-          </div>
-        </article>
-        <article class="blog-card">
-          <picture>
-            <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/blog8.webp" type="image/webp">
-            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/blog8.png"
-              class="blog-card__image" width="370" height="280" alt="">
-          </picture>
-          <div class="blog-card__content">
-            <p class="blog-card__categories">Autumn</p>
-            <h2 class="blog-card__title">One of Saturn’s largest rings may be newer than anyone</h2>
-            <div class="blog-card__info">
-              <span>June 6, 2019</span>
-              <span>By Rickie Baroch</span>
-            </div>
-          </div>
-        </article>
-        <article class="blog-card">
-          <picture>
-            <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/blog9.webp" type="image/webp">
-            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/blog9.png"
-              class="blog-card__image" width="370" height="280" alt="">
-          </picture>
-          <div class="blog-card__content">
-            <p class="blog-card__categories">clothes</p>
-            <h2 class="blog-card__title">One of Saturn’s largest rings may be newer than anyone</h2>
-            <div class="blog-card__info">
-              <span>June 6, 2019</span>
-              <span>By Rickie Baroch</span>
-            </div>
-          </div>
-        </article>
-        <article class="blog-card">
-          <picture>
-            <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/blog10.webp" type="image/webp">
-            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/blog10.png"
-              class="blog-card__image" width="370" height="280" alt="">
-          </picture>
-          <div class="blog-card__content">
-            <p class="blog-card__categories">summer</p>
-            <h2 class="blog-card__title">One of Saturn’s largest rings may be newer than anyone</h2>
-            <div class="blog-card__info">
-              <span>June 6, 2019</span>
-              <span>By Rickie Baroch</span>
-            </div>
-          </div>
-        </article>
-        <article class="blog-card">
-          <picture>
-            <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/blog11.webp" type="image/webp">
-            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/blog11.png"
-              class="blog-card__image" width="370" height="280" alt="">
-          </picture>
-          <div class="blog-card__content">
-            <p class="blog-card__categories">summer</p>
-            <h2 class="blog-card__title">One of Saturn’s largest rings may be newer than anyone</h2>
-            <div class="blog-card__info">
-              <span>June 6, 2019</span>
-              <span>By Rickie Baroch</span>
-            </div>
-          </div>
-        </article> -->
-
-
         
         <div class="blog__pagination pagination">
           <ul class="list-reset pagination__list">
@@ -286,17 +107,13 @@ wp_reset_postdata();
         <div class="aside__item author">
           <a href="#" class="btn aside__button">About the author</a>
           <article class="author__card">
-            <picture>
-              <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/blog12.webp" type="image/webp">
-              <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/blog12.png"
-                class="author__image" width="270" height="180" alt="">
-            </picture>
+            <a href="<?php echo get_author_posts_url(1); ?>">
+              <img loading="lazy" src="<?php echo get_avatar_url(1); ?>" class="author__image" width="270" height="180" alt="">
+            </a>
             <div class="author__content">
-              <h2 class="author__title">Kate Willems</h2>
-              <span>Food & cooking bloger</span>
-              <p class="author__descr">Hi, I’m Sonia. Cooking is the way I express my creative side to the world.
-                Welcome
-                to my Kitchen Corner on…</p>
+              <h2 class="author__title"><?php the_author(); ?></h2>
+              <span>programmist</span>
+              <p class="author__descr"><?php the_author_meta('description'); ?></p>
             </div>
             <a href="" class="author__button">Continue Reading</a>
           </article>
@@ -490,8 +307,7 @@ wp_reset_postdata();
       <h1 class="follow__title">Follow our @instagram_name</h1>
       <ul class="list-reset follow__list">
 
-
-
+    
       <li class="follow__item">
           <picture>
             <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/follow2.webp" type="image/webp">

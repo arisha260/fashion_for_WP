@@ -4,16 +4,99 @@
       <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/logo.webp" type="image/webp">
       <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" class="footer__logo" width="128" height="32" alt="" >
     </picture>
-    <ul class="list-reset footer-nav">
-      <li class="footer-nav__item"><a href="#" class="footer-nav__link"></a>Home</li>
-      <li class="footer-nav__item"><a href="#" class="footer-nav__link"></a>Recipes</li>
-      <li class="footer-nav__item"><a href="#" class="footer-nav__link"></a>Article</li>
-      <li class="footer-nav__item"><a href="#" class="footer-nav__link"></a>Contact</li>
-      <li class="footer-nav__item"><a href="#" class="footer-nav__link"></a>Purchase</li>
-    </ul>
+    
+
+    <?php
+
+
+
+      function add_additional_class_on_li_footer($classes, $item, $args) {
+        if (isset($args->li_class)) {
+            $classes[] = $args->li_class;
+        }
+        return $classes;
+        }
+        add_filter('nav_menu_css_class', 'add_additional_class_on_li_footer', 1, 3);
+        
+
+        function add_additional_class_on_a_footer($atts, $item, $args) {
+          if (isset($args->a_class)) {
+              $atts['class'] = $args->a_class;
+          }
+          return $atts;
+        }
+        add_filter('nav_menu_link_attributes', 'add_additional_class_on_a_footer', 1, 3);
+
+        // Вывод меню с использованием нового класса для элементов li
+        wp_nav_menu( [
+            'theme_location'  => '',
+            'menu'            => '',
+            'container'       => 'div',
+            'container_class' => '',
+            'container_id'    => '',
+            'menu_class'      => 'list-reset footer-nav',
+            'menu_id'         => '',
+            'echo'            => true,
+            'fallback_cb'     => 'wp_page_menu',
+            'before'          => '',
+            'after'           => '',
+            'link_before'     => '',
+            'link_after'      => '',
+            'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+            'depth'           => 0,
+            'walker'          => '',
+            'li_class'        => 'footer-nav__item', // Задаем класс для li
+            'a_class'         => 'footer-nav__link', // Класс для <a>
+        ] );
+      ?>
+
+
+
+
+    
+
 
     <ul class="list-reset footer-social">
+
+    <?php 
+    $my_posts = get_posts( array(
+      'numberposts' => -1,
+      'category'    => 0,
+      'orderby'     => 'date',
+      'order'       => 'DESC',
+      'include'     => array(),
+      'exclude'     => array(),
+      'meta_key'    => '',
+      'meta_value'  =>'',
+      'post_type'   => 'social',
+      'suppress_filters' => true, 
+    ) );
+
+    global $post;
+
+    foreach( $my_posts as $post ){
+      setup_postdata( $post );
+      $img_id = get_post_meta(get_the_ID(), 'img', true);
+      $img_url = wp_get_attachment_url($img_id);
+    ?>
+
       <li class="footer-social__item">
+        <a href="<?php echo get_post_meta(get_the_ID(), 'link', true);?>" class="footer-social__link" target="_blank">
+          <img src="<?php echo esc_url($img_url); ?>" class="footer-social__img" alt="">
+        </a>
+      </li>
+
+
+    <?php 
+      
+    }
+
+
+    wp_reset_postdata();
+    ?>
+
+
+      <!-- <li class="footer-social__item">
         <a href="" class="footer-social__link">
           <svg class="footer__svg" width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8.78312 0.211465L6.78402 0.208252C4.53809 0.208252 3.08668 1.69991 3.08668 4.00866V5.7609H1.07667C0.90298 5.7609 0.762329 5.90195 0.762329 6.07594V8.61474C0.762329 8.78872 0.90314 8.92962 1.07667 8.92962H3.08668V15.3358C3.08668 15.5098 3.22733 15.6507 3.40102 15.6507H6.02351C6.1972 15.6507 6.33785 15.5096 6.33785 15.3358V8.92962H8.68802C8.86171 8.92962 9.00236 8.78872 9.00236 8.61474L9.00332 6.07594C9.00332 5.9924 8.97012 5.91239 8.91126 5.85327C8.8524 5.79415 8.77222 5.7609 8.68882 5.7609H6.33785V4.2755C6.33785 3.56156 6.50769 3.19913 7.43611 3.19913L8.7828 3.19865C8.95633 3.19865 9.09698 3.05759 9.09698 2.88377V0.526345C9.09698 0.352679 8.95649 0.211786 8.78312 0.211465Z" fill="currentColor" />
@@ -57,11 +140,10 @@
             <path d="M13.6042 5.45825C14.191 5.45825 14.6667 4.98255 14.6667 4.39575C14.6667 3.80895 14.191 3.33325 13.6042 3.33325C13.0174 3.33325 12.5417 3.80895 12.5417 4.39575C12.5417 4.98255 13.0174 5.45825 13.6042 5.45825Z" fill="currentColor"/>
           </svg>
         </a>
-      </li>
+      </li> -->
     </ul>
 
     <span class="footer__copy">@2019 Logwork. All Right Reserved.</span>
-
   </div>
 </footer>
 
