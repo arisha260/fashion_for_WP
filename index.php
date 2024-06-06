@@ -20,88 +20,86 @@ get_header();
   <section class="blog">
     <div class="container blog__container">
       <div class="blog__left">
+      <?php
+      $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-<?php
-      // параметры по умолчанию
-$my_posts = get_posts( array(
-	'numberposts' => -1,
-	'category'    => 0,
-	'orderby'     => 'date',
-	'order'       => 'ASC',
-	'include'     => array(),
-	'exclude'     => array(),
-	'meta_key'    => '',
-	'meta_value'  =>'',
-	'post_type'   => 'post',
-	'suppress_filters' => true,
-) );
-foreach ($my_posts as $index => $post) {
-  setup_postdata($post);
-  
-  if ($index === 6) {
-      // Отдельная карточка
-      ?>
-      <article class="blog-card">        
-          <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(); ?>" class="blog-card__image" width="770" height="339" alt="">
-          <div class="blog-card__content blog-card__content-full">
-              <p class="blog-card__categories">Summer</p>
-              <a href="<?php the_permalink(); ?>" class="blog-card__title">One of Saturn’s largest rings may be newer than anyone</a>
-              <div class="blog-card__info">
-                  <span>June 6, 2019</span>
+      $query = new WP_Query( array(
+        'posts_per_page' => 11, // Количество постов на странице
+        'paged' => $paged,
+        'orderby' => 'date',
+        'order' => 'ASC',
+        'post_type' => 'post',
+      ) );
+
+      if ($query->have_posts()) :
+        while ($query->have_posts()) : $query->the_post();
+          if ($query->current_post === 6) {
+            // Отдельная карточка
+            ?>
+            <article class="blog-card">        
+              <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(); ?>" class="blog-card__image" width="770" height="339" alt="">
+              <div class="blog-card__content blog-card__content-full">
+                <p class="blog-card__categories"><?php the_category(', '); ?></p>
+                <a href="<?php the_permalink(); ?>" class="blog-card__title"><?php the_title(); ?></a>
+                <div class="blog-card__info">
+                  <span><?php the_date('F j, Y'); ?></span>
                   <span>By <?php the_author(); ?></span>
                   <span><?php comments_number(); ?></span>
+                </div>
+                <p class="blog-card__descr"><?php echo wp_trim_words(get_the_excerpt(), 40, '...'); ?></p>
               </div>
-              
-              <p class="blog-card__descr">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                  doloremque laudantium, totam rem sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium
-                  doloremque laudantium, totam rem</p>
-          </div>
-      </article>
-      <?php
-  } else {
-      // Обычная карточка
-      ?>
-      <article class="blog-card">
-          <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(); ?>" class="blog-card__image" width="370" height="280" alt="">
-          <div class="blog-card__content">
-              <p class="blog-card__categories">Tourism</p>
-              <a href="<?php the_permalink(); ?>" class="blog-card__title">One of Saturn’s largest rings may be newer than anyone</a>
-              <div class="blog-card__info">
-                  <span><?php echo date( 'F j, Y' )?></span>
+            </article>
+            <?php
+          } else {
+            // Обычная карточка
+            ?>
+            <article class="blog-card">
+              <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(); ?>" class="blog-card__image" width="370" height="280" alt="">
+              <div class="blog-card__content">
+                <p class="blog-card__categories"><?php the_category(', '); ?></p>
+                <a href="<?php the_permalink(); ?>" class="blog-card__title"><?php the_title(); ?></a>
+                <div class="blog-card__info">
+                  <span><?php the_date('F j, Y'); ?></span>
                   <span>By <?php the_author(); ?></span>
+                </div>
               </div>
-          </div>
-      </article>
-      <?php
-  }
-}
-wp_reset_postdata();
-?>
+            </article>
+            <?php
+          }
+        endwhile;
         
-        <div class="blog__pagination pagination">
-          <ul class="list-reset pagination__list">
-            <li class="pagination__item pagination__item-arroy">
-              <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path opacity="0.4" d="M5 1L1 5L5 9" stroke="#171717" stroke-width="1.33333" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-              OLDER POST
-            </li>
-            <li class="pagination__item">1</li>
-            <li class="pagination__item">2</li>
-            <li class="pagination__item">3</li>
-            <li class="pagination__item">…</li>
-            <li class="pagination__item">8</li>
-            <li class="pagination__item pagination__item-arroy">
-              NEXT POST
-              <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path opacity="0.4" d="M1 1L5 5L1 9" stroke="#171717" stroke-width="1.33333" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </li>
-          </ul>
-        </div>
+        add_filter('navigation_markup_template', 'my_navigation_template', 10, 2 );
+      function my_navigation_template( $template, $class ){
+        /*
+        Вид базового шаблона:
+        <nav class="navigation %1$s" role="navigation">
+          <h2 class="screen-reader-text">%2$s</h2>
+          <div class="nav-links">%3$s</div>
+        </nav>
+        */
+
+        return '
+        <nav class="navigation %1$s" role="navigation">
+          <div class="nav-links">%3$s</div>
+        </nav>
+        ';
+      }
+
+
+
+        the_posts_pagination(array(
+          'mid_size' => 2,
+          'prev_text' => __('< Older Posts', 'textdomain'),
+          'next_text' => __('Next Posts >', 'textdomain'),
+        ));
+        
+      else :
+        echo '<p>No posts found</p>';
+      endif;
+
+      wp_reset_postdata();
+      ?>
+      
       </div>
       <div class="aside">
         <div class="aside__item author">

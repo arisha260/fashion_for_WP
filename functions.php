@@ -17,3 +17,4 @@ function rmn_custom_mime_types( $mimes ) {
     return $mimes;
 }
 add_filter( 'upload_mimes', 'rmn_custom_mime_types' );
+
