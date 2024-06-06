@@ -485,6 +485,8 @@ a {
 .blog-card__categories {
   margin: 0;
   margin-bottom: 4px;
+}
+.blog-card__categories a{
   font-family: var(--second-family);
   font-weight: 400;
   font-size: 12px;
@@ -1015,7 +1017,6 @@ a {
 @media (hover: hover) {
   .social__item:hover {
     scale: 1.1;
-    z-index: -1;
   }
 }
 @media (hover: hover) {

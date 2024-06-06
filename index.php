@@ -23,13 +23,13 @@ get_header();
       <?php
       $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-      $query = new WP_Query( array(
+      $query = new WP_Query(array(
         'posts_per_page' => 11, // Количество постов на странице
         'paged' => $paged,
         'orderby' => 'date',
         'order' => 'ASC',
         'post_type' => 'post',
-      ) );
+      ));
 
       if ($query->have_posts()) :
         while ($query->have_posts()) : $query->the_post();
@@ -42,7 +42,7 @@ get_header();
                 <p class="blog-card__categories"><?php the_category(', '); ?></p>
                 <a href="<?php the_permalink(); ?>" class="blog-card__title"><?php the_title(); ?></a>
                 <div class="blog-card__info">
-                  <span><?php the_date('F j, Y'); ?></span>
+                  <span><?php the_time('F j, Y'); ?></span>
                   <span>By <?php the_author(); ?></span>
                   <span><?php comments_number(); ?></span>
                 </div>
@@ -59,7 +59,7 @@ get_header();
                 <p class="blog-card__categories"><?php the_category(', '); ?></p>
                 <a href="<?php the_permalink(); ?>" class="blog-card__title"><?php the_title(); ?></a>
                 <div class="blog-card__info">
-                  <span><?php the_date('F j, Y'); ?></span>
+                  <span><?php the_time('F j, Y'); ?></span>
                   <span>By <?php the_author(); ?></span>
                 </div>
               </div>
@@ -67,32 +67,23 @@ get_header();
             <?php
           }
         endwhile;
-        
-        add_filter('navigation_markup_template', 'my_navigation_template', 10, 2 );
-      function my_navigation_template( $template, $class ){
-        /*
-        Вид базового шаблона:
-        <nav class="navigation %1$s" role="navigation">
-          <h2 class="screen-reader-text">%2$s</h2>
-          <div class="nav-links">%3$s</div>
-        </nav>
-        */
 
-        return '
-        <nav class="navigation %1$s" role="navigation">
-          <div class="nav-links">%3$s</div>
-        </nav>
-        ';
-      }
-
-
+        add_filter('navigation_markup_template', 'my_navigation_template', 10, 2);
+        function my_navigation_template($template, $class)
+        {
+          return '
+          <nav class="navigation %1$s" role="navigation">
+            <div class="nav-links">%3$s</div>
+          </nav>
+          ';
+        }
 
         the_posts_pagination(array(
           'mid_size' => 2,
           'prev_text' => __('< Older Posts', 'textdomain'),
           'next_text' => __('Next Posts >', 'textdomain'),
         ));
-        
+
       else :
         echo '<p>No posts found</p>';
       endif;
